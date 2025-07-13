@@ -1,115 +1,781 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+/* 기본 설정 및 폰트 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2563EB;
+    --secondary-color: #6B7280;
+    --accent-color: #3B82F6;
+    --text-primary: #1F2937;
+    --text-secondary: #6B7280;
+    --background: #FFFFFF;
+    --card-background: #F8FAFC;
+    --card-background-alt: #FAFBFC;
+    --border-color: #E5E7EB;
+    --border-color-light: #F3F4F6;
+    --shadow: 0 2px 12px rgba(37, 99, 235, 0.15);
+    --shadow-hover: 0 4px 20px rgba(37, 99, 235, 0.25);
+    --shadow-lg: 0 6px 20px rgba(37, 99, 235, 0.18);
+    
+    /* 스킬 카테고리별 색상 */
+    --skill-backend: linear-gradient(135deg, #EBF4FF 0%, #DBEAFE 100%);
+    --skill-databases: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+    --skill-infrastructure: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+    --skill-frontend: linear-gradient(135deg, #FCE7F3 0%, #FBCFE8 100%);
+    --skill-languages: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
+}
+
+* {
     margin: 0;
     padding: 0;
-    background: #f4f4f4;
-    color: #333;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background);
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    cursor: none;
+}
+
+/* SVG 이미지 커서 */
+.custom-cursor {
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-20%, -10%);
+    
+    /* SVG 이미지 배경 */
+    background-image: url('./icons8-cursor.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    /* 더 진한 그림자 효과 */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.25));
+}
+
+.custom-cursor.hover {
+    transform: translate(-20%, -10%) scale(1.1);
+    filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* 호버 가능한 요소들 - 기본 커서 숨김 */
+* {
+    cursor: none !important;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 
+/* 헤더 및 프로필 섹션 */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    text-align: center;
+    background: var(--primary-color);
+    padding: 48px 0;
+    margin-bottom: 80px;
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.15);
 }
 
-header h1 {
-    margin: 0;
+.profile-section {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    text-align: left;
 }
 
-header p {
-    margin-top: 5px;
-    font-size: 1.1em;
+.profile-image {
+    flex-shrink: 0;
 }
 
+.profile-image img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.profile-info p {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+/* 언어 스위처 */
 .language-switcher {
-    margin-top: 10px;
+    display: flex;
+    gap: 12px;
 }
 
 .language-switcher button {
-    background: #555;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    margin: 0 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: none;
+    transition: all 0.2s ease;
 }
 
 .language-switcher button:hover {
-    background: #777;
+    background: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .language-switcher button.active {
-    background: #007bff;
-    color: #fff;
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
 }
 
-.language-switcher button.active:hover {
-    background: #0056b3;
-}
-
+/* 메인 컨텐츠 */
 main {
-    padding: 20px 0;
+    margin-bottom: 80px;
+    background: var(--background);
+}
+
+/* 섹션 스타일 */
+section {
+    margin-bottom: 80px;
+    border-radius: 0;
+    padding: 0 0 40px 0;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    position: relative;
+}
+
+
+
+section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 0;
+    padding-bottom: 16px;
+    border-bottom: 3px solid var(--primary-color);
+    display: block;
+    width: 100%;
+    letter-spacing: -0.02em;
+}
+
+section h2::before {
+    display: none;
+}
+
+/* About Me 섹션 특별 스타일 */
+#about-me .content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+}
+
+/* 컨텐츠 스타일 */
+.content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-weight: 400;
+}
+
+.content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 32px 0 16px 0;
+}
+
+.content p {
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.content ul {
+    margin: 16px 0;
+    padding-left: 0;
+}
+
+.content li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.7;
+}
+
+.content li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 스킬 섹션 특별 스타일 */
+#skills .content {
+    background: var(--card-background);
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color-light);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    transition: all 0.3s ease;
+}
+
+#skills .content:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-category {
+    border-radius: 16px;
+    padding: 28px;
+    margin-bottom: 0;
+    border: 1px solid rgba(37, 99, 235, 0.1);
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.skill-category:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* 스킬 카테고리별 배경 색상 */
+.skill-category:nth-child(1) {
+    background: var(--skill-backend);
+}
+
+.skill-category:nth-child(2) {
+    background: var(--skill-databases);
+}
+
+.skill-category:nth-child(3) {
+    background: var(--skill-infrastructure);
+}
+
+.skill-category:nth-child(4) {
+    background: var(--skill-frontend);
+}
+
+.skill-category:nth-child(5) {
+    background: var(--skill-languages);
+}
+
+.skill-category h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 20px 0;
+    padding: 0;
+    border: none;
+    display: block;
+}
+
+.skill-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.skill-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    cursor: none;
+    box-shadow: var(--shadow);
+}
+
+.skill-badge:hover {
+    background: var(--accent-color);
+    box-shadow: var(--shadow-hover);
+}
+
+/* 경험 섹션 카드 스타일 */
+#experience .content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.experience-card {
+    background: var(--card-background);
+    border: 1px solid var(--border-color-light);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    box-shadow: var(--shadow);
+}
+
+.experience-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.experience-period {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-width: 160px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.experience-info {
+    flex: 1;
+}
+
+.experience-card h3 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+}
+
+.experience-card .company {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.experience-card ul {
+    margin: 0;
+}
+
+.experience-card li {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* 프로젝트 섹션 카드 스타일 - 2x2 그리드 */
+#projects .content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+}
+
+.project-card {
+    background: var(--card-background);
+    border: 1px solid var(--border-color-light);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.project-header {
+    border-bottom: 1px solid var(--border-color-light);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin: 0 0 12px 0;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.project-period {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.project-links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    background: var(--card-background-alt);
+    color: var(--primary-color);
+    padding: 4px 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color-light);
+}
+
+.project-link:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.project-content {
+    flex: 1;
+}
+
+.project-card ul {
+    margin: 0;
+}
+
+.project-card li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+/* 교육 및 기타 섹션 - Experience와 완전히 동일한 디자인 */
+#education .content,
+#etc .content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.education-item,
+.etc-item {
+    background: var(--card-background);
+    border: 1px solid var(--border-color-light);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    box-shadow: var(--shadow);
+    margin-bottom: 0;
+}
+
+.education-item:hover,
+.etc-item:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.education-period,
+.etc-period {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-width: 160px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.education-item-info,
+.etc-item-info {
+    flex: 1;
+}
+
+.education-item h3,
+.etc-item h3 {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin: 0 0 12px 0;
+    font-weight: 700;
+}
+
+.education-item .subtitle,
+.etc-item .subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.education-item ul,
+.etc-item ul {
+    margin: 0;
+}
+
+.education-item li,
+.etc-item li {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+/* Contact 섹션 */
+#contact .content {
+    background: var(--card-background);
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color-light);
+    transition: all 0.3s ease;
+}
+
+#contact .content:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.contact-item:hover {
+    color: var(--accent-color);
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--text-primary);
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.contact-label {
+    color: var(--text-primary);
+    font-weight: 600;
+    min-width: 80px;
+}
+
+.contact-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.contact-item a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* 푸터 */
+footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+    }
+    
+    .profile-info h1 {
+        font-size: 2.5rem;
+    }
+    
+    .profile-info p {
+        font-size: 1.25rem;
+    }
+    
+    .language-switcher {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    section {
+        padding: 0 0 32px 0;
+        margin-bottom: 60px;
+    }
+    
+    #skills .content,
+    #about-me .content,
+    #contact .content {
+        padding: 32px 24px;
+    }
+    
+    section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .content {
+        font-size: 1rem;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .skill-category {
+        padding: 20px;
+    }
+    
+    .skill-badges {
+        gap: 10px;
+    }
+    
+    .skill-badge {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+    }
+    
+    #projects .content {
+        grid-template-columns: 1fr;
+    }
+    
+    .education-item,
+    .etc-item {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .education-period,
+    .etc-period {
+        min-width: auto;
+        text-align: left;
+    }
+    
+    .experience-card {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .experience-period {
+        min-width: auto;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-info h1 {
+        font-size: 2rem;
+    }
+    
+    .profile-info p {
+        font-size: 1.1rem;
+    }
+    
+    .profile-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    #skills .content,
+    #about-me .content,
+    #contact .content {
+        padding: 24px 20px;
+    }
+    
+    section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .skill-category {
+        padding: 16px;
+    }
+    
+    .project-card {
+        padding: 24px;
+    }
+    
+    .education-item,
+    .etc-item {
+        padding: 24px;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .contact-label {
+        min-width: auto;
+    }
+    
+    .contact-item a {
+        word-break: break-all;
+        font-size: 1rem;
+    }
+}
+
+/* 애니메이션 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 section {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    animation: fadeInUp 0.6s ease-out;
 }
 
-section h2 {
-    color: #333;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 20px;
+::-webkit-scrollbar-track {
+    background: var(--background);
 }
 
-/* Markdown styling */
-section .content h3 {
-    color: #555;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
 }
 
-section .content ul {
-    list-style-type: disc;
-    margin-left: 20px;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
 }
 
-section .content ul li {
-    margin-bottom: 5px;
-}
 
-section .content p {
-    margin-bottom: 1em;
-}
-
-section .content a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-section .content a:hover {
-    text-decoration: underline;
-}

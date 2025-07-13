@@ -4,59 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <div class="container">
-        <h1>HyunJoo Park</h1>
-        <p>Server Backend Developer</p>
-        <div class="language-switcher">
-            <button onclick="setLanguage('ko')">한국어</button>
-            <button onclick="setLanguage('en')">English</button>
-            <button onclick="setLanguage('ja')">日本語</button>
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-image">
+                    <img src="my-notion-face-portrait.png" alt="프로필 이미지">
+                </div>
+                <div class="profile-info">
+                    <h1>박현주 HyunJoo Park</h1>
+                    <p>Server Backend Developer</p>
+                    <div class="language-switcher">
+                        <button onclick="setLanguage('ko')" class="active">한국어</button>
+                        <button onclick="setLanguage('en')">English</button>
+                        <button onclick="setLanguage('ja')">日本語</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<main class="container">
-    <section id="about-me">
-        <h2>About Me</h2>
-        <div class="content"></div>
-    </section>
+    <main>
+        <div class="container">
+            <section id="about-me">
+                <h2>About Me</h2>
+                <div class="content">
+                    <p>내용을 불러오는 중입니다...</p>
+                </div>
+            </section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="content"></div>
-    </section>
+            <section id="skills">
+                <h2>Skills</h2>
+                <div class="content">
+                    <p>내용을 불러오는 중입니다...</p>
+                </div>
+            </section>
 
-    <section id="experience">
-        <h2>Experience</h2>
-        <div class="content"></div>
-    </section>
+            <section id="experience">
+                <h2>Experience</h2>
+                <div class="content">
+                    <p>내용을 불러오는 중입니다...</p>
+                </div>
+            </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="content"></div>
-    </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <div class="content">
+                    <p>내용을 불러오는 중입니다...</p>
+                </div>
+            </section>
 
-    <section id="education">
-        <h2>Education</h2>
-        <div class="content"></div>
-    </section>
+            <section id="education">
+                <h2>Education</h2>
+                <div class="content">
+                    <p>내용을 불러오는 중입니다...</p>
+                </div>
+            </section>
 
-    <section id="etc">
-        <h2>Etc</h2>
-        <div class="content"></div>
-    </section>
-</main>
+            <section id="etc">
+                <h2>Etc</h2>
+                <div class="content">
+                    <p>내용을 불러오는 중입니다...</p>
+                </div>
+            </section>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2025 HyunJoo Park. All rights reserved.</p>
-    </div>
-</footer>
+            <section id="contact">
+                <h2>Contact</h2>
+                <div class="content">
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-label">Email:</span>
+                            <a href="mailto:hjpark4645@gmail.com">hjpark4645@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <span class="contact-label">GitHub:</span>
+                            <a href="https://github.com/hj4645" target="_blank">https://github.com/hj4645</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <span class="contact-label">LinkedIn:</span>
+                            <a href="https://www.linkedin.com/in/hyunjoo-park-887391301/" target="_blank">https://www.linkedin.com/in/hyunjoo-park-887391301/</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
 
-<script src="script.js"></script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 HyunJoo Park. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
