@@ -121,15 +121,19 @@ function parseMarkdown(markdown) {
     for (const line of lines) {
         if (line.startsWith('## ')) {
             const sectionTitle = line.substring(3).trim();
-            currentSection = sectionTitle.toLowerCase()
+            // 숫자와 점 제거하고 섹션명만 추출
+            const cleanTitle = sectionTitle.replace(/^\d+\.\s*/, '').trim();
+            currentSection = cleanTitle.toLowerCase()
                 .replace(/\s+/g, '-')
                 .replace(/[^a-z0-9-가-힣]/g, '');
             sections[currentSection] = '';
+            console.log(`Parsed section: "${sectionTitle}" -> "${currentSection}"`); // 디버깅용
         } else if (currentSection) {
             sections[currentSection] += line + '\n';
         }
     }
 
+    console.log('Final sections:', Object.keys(sections)); // 디버깅용
     return sections;
 }
 
