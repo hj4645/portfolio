@@ -1,188 +1,5 @@
-// 마크다운 콘텐츠를 JavaScript 객체로 임베드
-const markdownContent = {
-    ko: `# 백엔드 개발자 포트폴리오 (초안 - 한국어)
-
-## About Me
-
-2년차 백엔드 개발자로, 현재 제조업 자동화(MES) 솔루션 기업에서 백엔드 개발을 중심으로 풀스택 개발 경험을 쌓고 있습니다. 현업에서는 하드웨어(설비) 데이터를 수집하여 대시보드에 그래프로 시각화하고, 제조업 종사자가 기존에 아날로그 방식으로 운영하던 부분을 자동화할 수 있도록 관리 시스템을 구축하는 업무를 수행하고 있습니다.
-
-## Skills
-
-### Backend
-Kotlin, Java, Spring Boot, Python, Gradle, Spring Data JPA, JavaScript, Maven
-
-### Databases
-MySQL, Oracle, PostgreSQL, MongoDB, InfluxDB
-
-### Infrastructure & DevOps
-Redis, Nginx, AWS, Ubuntu (Linux), GitHub Actions, Docker
-
-### Frontend
-React, Vanilla JS
-
-### Languages
-영어 (간단한 회화), 일본어 (간단한 회화)
-
-## Experience
-
-### 제조업 자동화(MES) 솔루션 기업 | 2023.08 ~ 현재
-- 하드웨어(설비) 데이터 수집 및 대시보드 시각화 시스템 구축
-- 제조업 공정 자동화를 위한 관리 시스템 개발
-
-## Projects
-
-### Flutter(Dart) 기반 MES 프론트엔드 개발 | 2024.03 ~ 2024.06
-- 제조업 현장 시스템 구현 경험
-
-### Java(Spring Boot), JavaScript(Thymeleaf) 레거시 시스템 리팩토링 | 2023.10 ~ 2024.02
-- 기존 시스템의 효율성 및 유지보수성 개선
-
-### React + Kotlin(GraphQL) MES 제조업 설비 데이터 시각화 및 자재 관리 페이지 BE + FE 구현 | 2024.01 ~ 2024.05 | https://github.com/username/mes-project
-- 설비 데이터 시각화 및 자재 관리 기능 개발
-
-### O2O 플랫폼 백엔드 매장 영역 담당 및 인프라 영역 모니터링 구성 (사이드 프로젝트) | 2024.06 ~ 2024.12 | https://github.com/username/o2o-platform | https://demo.o2o-platform.com
-- 멀티모듈 프로젝트 구조 구성 및 매장 영역 개발
-- 분산 모니터링 시스템 구축 (OpenZipkin, OpenTelemetry, Grafana, Prometheus) 및 AWS 운영 서버와 로컬 DB 서버 메트릭 수집
-- Redis 캐시 장애 대응을 위한 Circuit Breaker 구현 (Redis 조회 -> Circuit Breaker 발동 -> 로컬 캐시 조회 -> DB 조회 (AOP Fallback 메서드, DB 부하 제한))
-
-### 분산 모니터링 시스템 구축 (현재 회사) | 2024.08 ~ 진행중 | https://github.com/username/monitoring-system
-- OpenZipkin, OpenTelemetry, Grafana, Prometheus를 활용한 분산 모니터링 시스템 구축
-- AWS 운영 서버 및 로컬 Ubuntu (Linux) MySQL 서버 메트릭 수집 (Prometheus Pull 방식, OpenTelemetry Push 방식)
-- 비용 절감을 위해 로컬 Ubuntu 서버에 모니터링 서버 구축
-
-## Education
-
-### (디지털컨버전스)AWS 클라우드와 Elasticsearch를 활용한 Java(자바) Full-Stack 개발자 양성과정 (2023-01-26 ~ 2023-07-11)
-
-## Etc
-
-### 패스트캠퍼스 INNER CIRCLE 멘티 (BackEnd Developer / Sub-Leader) (2025-03-22 ~ 2025-06-25)
-- 재직자 대상 개발자 성장 프로그램 참여
-- 코드 리뷰 및 프로젝트 멘티 활동
-- 지역 소상공인 상생을 위한 재고 상품 판매 O2O 서비스 기획 및 최우수 프로젝트 수상`,
-
-    en: `# Backend Developer Portfolio (Draft - English)
-
-## About Me
-
-I am a 2nd-year backend developer currently gaining full-stack development experience with a focus on backend development at a manufacturing automation (MES) solution company. In my current role, I collect hardware (equipment) data and visualize it on dashboards with graphs, and build management systems to automate processes that manufacturing workers previously operated in analog ways.
-
-## Skills
-
-### Backend
-Kotlin, Java, Spring Boot, Python, Gradle, Spring Data JPA, JavaScript, Maven
-
-### Databases
-MySQL, Oracle, PostgreSQL, MongoDB, InfluxDB
-
-### Infrastructure & DevOps
-Redis, Nginx, AWS, Ubuntu (Linux), GitHub Actions, Docker
-
-### Frontend
-React, Vanilla JS
-
-### Languages
-English (Basic Conversation), Japanese (Basic Conversation)
-
-## Experience
-
-### Manufacturing Automation (MES) Solution Company | Aug 2023 ~ Present
-- Building hardware (equipment) data collection and dashboard visualization systems
-- Developing management systems for manufacturing process automation
-
-## Projects
-
-### Flutter(Dart) based MES Frontend Development | Mar 2024 ~ Jun 2024
-- Experience implementing manufacturing field systems
-
-### Java(Spring Boot), JavaScript(Thymeleaf) Legacy System Refactoring | Oct 2023 ~ Feb 2024
-- Improved efficiency and maintainability of existing systems
-
-### React + Kotlin(GraphQL) MES Manufacturing Equipment Data Visualization and Material Management Page BE + FE Implementation | Jan 2024 ~ May 2024 | https://github.com/username/mes-project
-- Developed equipment data visualization and material management features
-
-### O2O Platform Backend Store Area Development and Infrastructure Monitoring Setup (Side Project) | Jun 2024 ~ Dec 2024 | https://github.com/username/o2o-platform | https://demo.o2o-platform.com
-- Multi-module project structure configuration and store area development
-- Distributed monitoring system setup (OpenZipkin, OpenTelemetry, Grafana, Prometheus) and AWS production server and local DB server metrics collection
-- Circuit Breaker implementation for Redis cache failure handling (Redis query -> Circuit Breaker activation -> Local cache query -> DB query (AOP Fallback method, DB load limitation))
-
-### Distributed Monitoring System Setup (Current Company) | Aug 2024 ~ Ongoing | https://github.com/username/monitoring-system
-- Distributed monitoring system setup using OpenZipkin, OpenTelemetry, Grafana, Prometheus
-- AWS production server and local Ubuntu (Linux) MySQL server metrics collection (Prometheus Pull method, OpenTelemetry Push method)
-- Built monitoring server on local Ubuntu server for cost reduction
-
-## Education
-
-### (Digital Convergence) Java Full-Stack Developer Training Course utilizing AWS Cloud and Elasticsearch (2023-01-26 ~ 2023-07-11)
-
-## Etc
-
-### Fast Campus INNER CIRCLE Mentee (Backend Developer / Sub-Leader) (2025-03-22 ~ 2025-06-25)
-- Participated in developer growth program for working professionals
-- Code review and project mentoring activities
-- Planned inventory product sales O2O service for local small business cooperation and won the best project award`,
-
-    ja: `# バックエンド開発者ポートフォリオ（草案 - 日本語）
-
-## About Me
-
-2年目のバックエンド開発者として、現在製造業自動化（MES）ソリューション企業でバックエンド開発を中心にフルスタック開発経験を積んでいます。現業では、ハードウェア（設備）データを収集してダッシュボードにグラフで可視化し、製造業従事者が既存にアナログ方式で運営していた部分を自動化できるよう管理システムを構築する業務を行っています。
-
-## Skills
-
-### Backend
-Kotlin, Java, Spring Boot, Python, Gradle, Spring Data JPA, JavaScript, Maven
-
-### Databases
-MySQL, Oracle, PostgreSQL, MongoDB, InfluxDB
-
-### Infrastructure & DevOps
-Redis, Nginx, AWS, Ubuntu (Linux), GitHub Actions, Docker
-
-### Frontend
-React, Vanilla JS
-
-### Languages
-英語（簡単な会話）、日本語（簡単な会話）
-
-## Experience
-
-### 製造業自動化（MES）ソリューション企業 | 2023年8月 ~ 現在
-- ハードウェア（設備）データ収集およびダッシュボード可視化システム構築
-- 製造業工程自動化のための管理システム開発
-
-## Projects
-
-### Flutter(Dart)ベースMESフロントエンド開発 | 2024年3月 ~ 2024年6月
-- 製造業現場システム実装経験
-
-### Java(Spring Boot)、JavaScript(Thymeleaf)レガシーシステムリファクタリング | 2023年10月 ~ 2024年2月
-- 既存システムの効率性および保守性改善
-
-### React + Kotlin(GraphQL) MES製造業設備データ可視化および資材管理ページBE + FE実装 | 2024年1月 ~ 2024年5月 | https://github.com/username/mes-project
-- 設備データ可視化および資材管理機能開発
-
-### O2Oプラットフォームバックエンド店舗領域担当およびインフラ領域モニタリング構成（サイドプロジェクト） | 2024年6月 ~ 2024年12月 | https://github.com/username/o2o-platform | https://demo.o2o-platform.com
-- マルチモジュールプロジェクト構造構成および店舗領域開発
-- 分散モニタリングシステム構築（OpenZipkin、OpenTelemetry、Grafana、Prometheus）およびAWS運営サーバーとローカルDBサーバーメトリクス収集
-- Redisキャッシュ障害対応のためのCircuit Breaker実装（Redis照会 -> Circuit Breaker発動 -> ローカルキャッシュ照会 -> DB照会（AOP Fallbackメソッド、DB負荷制限））
-
-### 分散モニタリングシステム構築（現在の会社） | 2024年8月 ~ 進行中 | https://github.com/username/monitoring-system
-- OpenZipkin、OpenTelemetry、Grafana、Prometheusを活用した分散モニタリングシステム構築
-- AWS運営サーバーおよびローカルUbuntu（Linux）MySQLサーバーメトリクス収集（Prometheus Pull方式、OpenTelemetry Push方式）
-- コスト削減のためローカルUbuntuサーバーにモニタリングサーバー構築
-
-## Education
-
-### （デジタルコンバージェンス）AWSクラウドとElasticsearchを活用したJava（ジャバ）Full-Stack開発者養成課程（2023-01-26 ~ 2023-07-11）
-
-## Etc
-
-### ファストキャンパスINNER CIRCLEメンティ（BackEnd Developer / Sub-Leader）（2025-03-22 ~ 2025-06-25）
-- 在職者対象開発者成長プログラム参加
-- コードレビューおよびプロジェクトメンティ活動
-- 地域小商工人共生のための在庫商品販売O2Oサービス企画および最優秀プロジェクト受賞`
-};
+// 마크다운 콘텐츠를 동적으로 로드
+const markdownContent = {};
 
 const contentData = {};
 
@@ -224,19 +41,75 @@ function initCursor() {
     });
 }
 
-function loadContent(lang) {
+async function loadContent(lang) {
     if (contentData[lang]) {
         renderContent(contentData[lang]);
         return;
     }
 
     try {
-        const markdown = markdownContent[lang] || markdownContent.ko;
-        contentData[lang] = parseMarkdown(markdown);
+        // 마크다운 파일에서 콘텐츠 로드
+        if (!markdownContent[lang]) {
+            console.log(`Attempting to fetch: portfolio_draft_${lang}.md`);
+            
+            // GitHub Pages의 절대 경로로 시도
+            const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+            const fileUrl = `${baseUrl}portfolio_draft_${lang}.md`;
+            
+            console.log(`Fetching from: ${fileUrl}`);
+            
+            const response = await fetch(fileUrl, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'text/plain',
+                    'Cache-Control': 'no-cache'
+                }
+            });
+            
+            if (!response.ok) {
+                console.error(`HTTP ${response.status}: ${response.statusText}`);
+                throw new Error(`Failed to fetch ${lang} content: ${response.status} ${response.statusText}`);
+            }
+            
+            markdownContent[lang] = await response.text();
+            console.log(`Successfully loaded ${lang} content:`, markdownContent[lang].substring(0, 100) + '...');
+        }
+        
+        contentData[lang] = parseMarkdown(markdownContent[lang]);
         renderContent(contentData[lang]);
     } catch (error) {
         console.error(`Error loading content for ${lang}:`, error);
-        renderErrorMessage(lang);
+        
+        // 폴백: 다른 경로들 시도
+        try {
+            console.log('Trying fallback paths...');
+            const fallbackPaths = [
+                `./portfolio_draft_${lang}.md`,
+                `/portfolio_draft_${lang}.md`,
+                `portfolio_draft_${lang}.md?t=${Date.now()}` // 캐시 방지
+            ];
+            
+            for (const path of fallbackPaths) {
+                try {
+                    console.log(`Trying fallback path: ${path}`);
+                    const response = await fetch(path);
+                    if (response.ok) {
+                        markdownContent[lang] = await response.text();
+                        contentData[lang] = parseMarkdown(markdownContent[lang]);
+                        renderContent(contentData[lang]);
+                        console.log(`Success with fallback path: ${path}`);
+                        return;
+                    }
+                } catch (fallbackError) {
+                    console.log(`Fallback path ${path} failed:`, fallbackError);
+                }
+            }
+            
+            throw new Error('All fallback paths failed');
+        } catch (fallbackError) {
+            console.error('All attempts failed:', fallbackError);
+            renderErrorMessage(lang);
+        }
     }
 }
 

@@ -29,6 +29,16 @@ English (conversational), Japanese (conversational)
 
 ## 4. Projects
 
+### JPA Batch Parallel Processing Performance Optimization
+
+Analyzed and resolved performance issues where INSERT queries in large-scale KPI data aggregation batches were intermittently delayed by more than 2 seconds. Identified that InnoDB AUTO_INCREMENT lock contention and index lock conflicts in parallel processing environments were the root cause.
+
+Designed Staggered Parallel Processing approach to optimize sequential startup with 150ms intervals between sites. This eliminated database lock contention caused by simultaneous DB access while maintaining the performance benefits of parallel processing.
+
+Minimized transaction lock scope by dividing batch size into units of 10 and introducing 20ms delays between batches. As a result, reduced first INSERT delay time from 2197ms to 3-5ms (99% improvement) and stabilized overall batch processing time.
+
+Improved data integrity and duplicate data processing performance by removing DELETE queries and switching to INSERT IGNORE approach.
+
 ### Flutter (Dart) based MES Frontend Development
 - Experience in implementing manufacturing site systems
 
