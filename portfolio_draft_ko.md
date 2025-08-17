@@ -10,7 +10,8 @@
 Kotlin, Java, Spring Boot, Python, Gradle, Spring Data JPA, JavaScript, Maven
 
 ### Databases
-MySQL, Oracle, PostgreSQL, MongoDB, InfluxDB
+- RDB: MySQL, Oracle, PostgreSQL, MariaDB
+- NoSQL: MongoDB, InfluxDB
 
 ### Infrastructure & DevOps
 Redis, Nginx, AWS, Ubuntu (Linux), GitHub Actions
@@ -23,21 +24,11 @@ React, Vanilla JS
 
 ## 3. Experience
 
-### 제조업 자동화(MES) 솔루션 기업 (현재 재직 중)
+### 제조업 자동화(MES) 솔루션 기업 (2023.08 ~ 현재)
 - 하드웨어(설비) 데이터 수집 및 대시보드 시각화 시스템 구축
 - 제조업 공정 자동화를 위한 관리 시스템 개발
 
 ## 4. Projects
-
-### JPA 배치 병렬처리 성능 최적화
-
-대용량 KPI 데이터 집계 배치에서 INSERT 쿼리가 간헐적으로 2초 이상 지연되는 성능 문제를 분석하고 해결하였습니다. 병렬처리 환경에서 발생하는 InnoDB AUTO_INCREMENT 락 경합과 인덱스 락 충돌이 원인임을 파악하였습니다.
-
-시간차 병렬처리(Staggered Parallel Processing) 방식을 설계하여 지부별로 150ms 간격으로 순차 시작하도록 최적화하였습니다. 이를 통해 동시 DB 접근으로 인한 락 경합을 제거하면서도 병렬 처리의 성능 이점을 유지할 수 있었습니다.
-
-배치 크기를 10개 단위로 분할하고 배치 간 20ms 지연을 도입하여 트랜잭션 락 범위를 최소화하였습니다. 그 결과 첫 번째 INSERT 지연 시간을 2197ms에서 3-5ms로 99% 단축시키고, 전체 배치 처리 시간을 안정화하였습니다.
-
-DELETE 쿼리를 제거하고 INSERT IGNORE 방식으로 전환하여 데이터 무결성을 보장하면서도 중복 데이터 처리 성능을 개선하였습니다.
 
 ### Flutter(Dart) 기반 MES 프론트엔드 개발
 - 제조업 현장 시스템 구현 경험
@@ -58,6 +49,12 @@ DELETE 쿼리를 제거하고 INSERT IGNORE 방식으로 전환하여 데이터 
 - AWS 운영 서버 및 로컬 Ubuntu (Linux) MySQL 서버 메트릭 수집 (Prometheus Pull 방식, OpenTelemetry Push 방식)
 - 비용 절감을 위해 로컬 Ubuntu 서버에 모니터링 서버 구축
 
+### JPA 배치 병렬처리 성능 최적화
+- 대용량 KPI 데이터 집계 배치에서 INSERT 쿼리가 간헐적으로 2초 이상 지연되는 성능 문제를 분석하고 해결하였습니다. 병렬처리 환경에서 발생하는 InnoDB AUTO_INCREMENT 락 경합과 인덱스 락 충돌이 원인임을 파악하였습니다.
+- 시간차 병렬처리(Staggered Parallel Processing) 방식을 설계하여 지부별로 150ms 간격으로 순차 시작하도록 최적화하였습니다. 이를 통해 동시 DB 접근으로 인한 락 경합을 제거하면서도 병렬 처리의 성능 이점을 유지할 수 있었습니다.
+- 배치 크기를 10개 단위로 분할하고 배치 간 20ms 지연을 도입하여 트랜잭션 락 범위를 최소화하였습니다. 그 결과 첫 번째 INSERT 지연 시간을 2197ms에서 3-5ms로 99% 단축시키고, 전체 배치 처리 시간을 안정화하였습니다.
+- DELETE 쿼리를 제거하고 INSERT IGNORE 방식으로 전환하여 데이터 무결성을 보장하면서도 중복 데이터 처리 성능을 개선하였습니다.
+
 ## 5. Education
 
 ### (디지털컨버전스)AWS 클라우드와 Elasticsearch를 활용한 Java(자바) Full-Stack 개발자 양성과정 (2023-01-26 ~ 2023-07-11)
@@ -66,5 +63,5 @@ DELETE 쿼리를 제거하고 INSERT IGNORE 방식으로 전환하여 데이터 
 
 ### 패스트캠퍼스 INNER CIRCLE 멘티 (BackEnd Developer / Sub-Leader) (2025-03-22 ~ 2025-06-25)
 - 재직자 대상 개발자 성장 프로그램 참여
-- 코드 리뷰 및 프로젝트 멘티 활동
-- 지역 소상공인 상생을 위한 재고 상품 판매 O2O 서비스 기획 및 최우수 프로젝트 수상
+- [지역 소상공인 상생을 위한 재고 상품 판매 O2O 서비스](https://github.com/InnerCircle-ICD3/o2o-BE/wiki) 기획 및 개발
+- 최우수 프로젝트상 수상

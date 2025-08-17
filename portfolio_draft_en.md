@@ -23,13 +23,13 @@ English (conversational), Japanese (conversational)
 
 ## 3. Experience
 
-### Manufacturing Automation (MES) Solution Company (Current)
+### Manufacturing Automation (MES) Solution Company | Aug 2023 ~ Present
 - Built systems for hardware (equipment) data collection and dashboard visualization
 - Developed management systems for automating manufacturing processes
 
 ## 4. Projects
 
-### JPA Batch Parallel Processing Performance Optimization
+### JPA Batch Parallel Processing Performance Optimization | Jan 2024 ~ Jun 2024
 
 Analyzed and resolved performance issues where INSERT queries in large-scale KPI data aggregation batches were intermittently delayed by more than 2 seconds. Identified that InnoDB AUTO_INCREMENT lock contention and index lock conflicts in parallel processing environments were the root cause.
 
